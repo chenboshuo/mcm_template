@@ -81,7 +81,6 @@
 \RequirePackage{ifpdf, ifxetex}
 \RequirePackage{palatino}
 \RequirePackage{siunitx} % 物理单位
-\RequirePackage{subfiles} % 子文件
 \RequirePackage{float}  % 浮动体
 \RequirePackage{cleveref}  % 智能自动化交叉引用
 \RequirePackage{tikz} % 绘图包
@@ -271,12 +270,16 @@
   \clearpage
   \pagestyle{fancy}%
 }
-\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Theorem}{Theorem}
 \newtheorem{Lemma}[Theorem]{Lemma}
 \newtheorem{Corollary}[Theorem]{Corollary}
 \newtheorem{Proposition}[Theorem]{Proposition}
 \newtheorem{Definition}[Theorem]{Definition}
 \newtheorem{Example}[Theorem]{Example}
+% 假设环境 assumption enironment
+\newtheorem{assumption}{Assumption}
+% 约束环境
+\newtheorem{constraint}{Constraint}
 \providecommand{\dif}{\mathop{}\!\mathrm{d}}
 \providecommand{\me}{\mathrm{e}}
 \providecommand{\mi}{\mathrm{i}}
@@ -288,10 +291,7 @@
 
 
 
-% 假设环境
-\newtheorem{assumption}{Assumption}
-% 约束环境
-\newtheorem{constraint}{Constraint}
+
 
 % 优化大于等于和小于等于
 \renewcommand{\le}{\leqslant}
