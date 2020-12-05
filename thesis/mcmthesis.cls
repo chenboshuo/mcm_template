@@ -356,6 +356,10 @@
   }%
 }
 
+\RequirePackage{newunicodechar}
+\newunicodechar{。}{. }
+\newunicodechar{，}{, }
+
 
 \endinput
 %%
