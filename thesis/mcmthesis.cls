@@ -111,7 +111,9 @@
     \hypersetup{dvipdfm, hidelinks}
   \fi
 \fi
-\geometry{a4paper, margin = 1.2in}
+% \geometry{a4paper, margin = 1.2in}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\small\sffamily \team}
