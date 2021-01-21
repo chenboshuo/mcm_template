@@ -355,11 +355,20 @@
     \tabularnewline
   }%
 }
+\renewcommand{\glossarysection}[2][]{}
+
 
 \RequirePackage{newunicodechar}
 \newunicodechar{。}{. }
 \newunicodechar{，}{, }
 
+% 算法环境 algorithm environment
+\RequirePackage{algorithm}
+% \RequirePackage{clrscode}
+\RequirePackage{clrscode3e}
+% <- 的定义
+\DeclareMathSymbol{\leftarrow}{\mathrel}{symbols}{"20}
+\let\gets=\leftarrow
 
 \endinput
 %%
