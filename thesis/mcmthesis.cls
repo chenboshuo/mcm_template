@@ -86,6 +86,10 @@
 \RequirePackage{tikz} % 绘图包
 \RequirePackage{mathtools} % dcase case*命令
 
+% todo标签
+\RequirePackage{todonotes}
+\setuptodonotes{inline, color=blue!30}
+
 \ifMCM@opt@CTeX
 \else
   \RequirePackage{environ}
@@ -113,11 +117,10 @@
 \fi
 % \geometry{a4paper, margin = 1.2in}
 \geometry{left=1in,right=0.75in,top=1in,bottom=1in}
-
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\small\sffamily \team}
-\rhead{\small\sffamily Page \thepage\ of \pageref{LastPage}}
+\rhead{\small\sffamily Page \thepage\ }
 \setlength\parskip{.5\baselineskip}
 \renewcommand\tableofcontents{%
     \centerline{\normalfont\Large\bfseries\sffamily\contentsname
@@ -149,6 +152,9 @@
   \fi
   \newpage
   \let\thepage\saved@thepage
+  % Generate the Table of Contents if it's needed.
+  \tableofcontents
+  \newpage
   \setcounter{page}{1}
   \pagestyle{fancy}
 }
@@ -333,9 +339,9 @@
 }
 
 \newglossarystyle{symblong}{%
-  \setglossarystyle{long3col}% base this style on the list style
+  \setglossarystyle{long}% base this style on the list style
   \renewenvironment{theglossary}{% Change the table type --> 3 columns
-    \begin{longtable}{lp{\glsdescwidth}>{\centering\arraybackslash}p{2cm}}%
+    \begin{longtable}{lp{0.8\textwidth}}%
     % \begin{longtable}{cc}%
 
     % \begin{longtable}
@@ -363,14 +369,18 @@
 \RequirePackage{newunicodechar}
 \newunicodechar{。}{. }
 \newunicodechar{，}{, }
+\newunicodechar{；}{;}
 
 % 算法环境 algorithm environment
 \RequirePackage{algorithm}
 % \RequirePackage{clrscode}
 \RequirePackage{clrscode3e}
-% <- 的定义
+% <- 的定义 definition of <-
 \DeclareMathSymbol{\leftarrow}{\mathrel}{symbols}{"20}
 \let\gets=\leftarrow
+
+
+
 
 \endinput
 %%
