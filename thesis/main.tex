@@ -1,8 +1,12 @@
-\documentclass{mcmthesis}
-\mcmsetup{CTeX = false,   % enable Chinese character 使用 CTeX 套装时，设置为 true
-        tcn = 00000000, problem = D,
-        sheet = true, titleinsheet = true, keywordsinsheet = true,
-        titlepage = false, abstract = false}
+% \documentclass{mcmthesis}
+\documentclass[draft,ebook]{mcmthesis}
+%%%%%% the above content changing maybe also need make command
+\mcmsetup{
+  CTeX = false,   % enable Chinese character 使用 CTeX 套装时，设置为 true
+  tcn = 00000000, problem = D,
+  sheet = true, titleinsheet = true, keywordsinsheet = true,
+  titlepage = false, abstract = false
+}
 \title{}
 \date{\today}
 
@@ -11,11 +15,8 @@
 
 \subfile{sections/abstract}
 
-
-
-
-
 % Generate the Table of Contents if it's needed.
+\listoftodos
 \tableofcontents
 \newpage
 
@@ -33,29 +34,21 @@
 
 \section{Introduction}
   \subfile{sections/introduction}
-
-
 \section{Basic Analysis of the problem}
   \subfile{sections/basic_analysis}
-
 \section{List Of Symbols}
   \subfile{sections/symbols}
-
 \section{General Assumptions}
   \subfile{sections/assumptions}
-
 \section{The Models}
   \subfile{sections/models}
-
 \section{Conclusions}
   \subfile{sections/conclusions}
-
 \section{Model Evaluation And Improvement}
   \subfile{sections/evaluation}
 
-
 \newpage
-
+\nocite{*}
 \bibliographystyle{plain}
 \bibliography{../reference/reference}
 

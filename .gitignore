@@ -12,6 +12,7 @@
 *.xcp
 
 **/sections/*.pdf
+**/build
 
 # python
 **/__pycache__/*

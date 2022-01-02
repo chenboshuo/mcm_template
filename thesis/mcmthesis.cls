@@ -30,6 +30,7 @@
 \ProvidesClass{mcmthesis}
   [2019/11/07 v6.3 The Thesis Template Designed For MCM/ICM]
 \typeout{The Thesis Template Designed For MCM/ICM}
+\typeout{And changed by chenboshuo/mcm_template}
 \def\MCMversion{v6.3}
 \RequirePackage{xkeyval}
 \RequirePackage{etoolbox}
@@ -51,12 +52,16 @@
 \define@boolkey{mcmthesis.cls}[MCM@opt@]{sheet}{}
 \define@boolkey{mcmthesis.cls}[MCM@opt@]{titleinsheet}{}
 \define@boolkey{mcmthesis.cls}[MCM@opt@]{keywordsinsheet}{}
+\newif\if@mcm@ebook\@mcm@ebookfalse
+
 \MCM@opt@sheettrue
 \MCM@opt@titlepagefalse
 \MCM@opt@titleinsheettrue
 \MCM@opt@keywordsinsheetfalse
 \MCM@opt@abstracttrue
+
 \newcommand{\mcmsetup}[1]{\setkeys{MCM}{#1}}
+\DeclareOption{ebook}{\@mcm@ebooktrue}
 \ProcessOptionsX\relax
 \LoadClass[a4paper, 12pt]{article}
 \newcommand{\team}{Team \#\ \MCM@opt@tcn}
@@ -73,7 +78,6 @@
 \RequirePackage{flafter}
 \RequirePackage{pifont, calc}
 \RequirePackage{colortbl, booktabs}
-\RequirePackage{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[scaled]{berasans}
 \PassOptionsToPackage{hyphens}{url}
@@ -87,7 +91,7 @@
 \RequirePackage{mathtools} % dcase case*命令
 
 % todo标签
-\RequirePackage{todonotes}
+\RequirePackage[obeyDraft]{todonotes}
 \setuptodonotes{inline, color=blue!30}
 
 \ifMCM@opt@CTeX
@@ -116,7 +120,16 @@
   \fi
 \fi
 % \geometry{a4paper, margin = 1.2in}
-\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+\if@mcm@ebook
+  \RequirePackage[papersize={108mm,144mm},
+      margin=2mm,
+      bottom=3mm
+    ]{geometry}
+\else
+  \RequirePackage[left=1in,right=0.75in,top=1in,bottom=1in]{geometry}
+\fi
+
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\small\sffamily \team}
@@ -296,14 +309,6 @@
 % 上标文献
 \newcommand{\upcite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
 \newcommand{\supercite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
-
-
-
-
-
-% 优化大于等于和小于等于
-\renewcommand{\le}{\leqslant}
-\renewcommand{\ge}{\geqslant}
 
 % 调整行距
 \linespread{1.3}
