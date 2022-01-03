@@ -62,7 +62,9 @@
 
 \newcommand{\mcmsetup}[1]{\setkeys{MCM}{#1}}
 \DeclareOption{ebook}{\@mcm@ebooktrue}
-\ProcessOptionsX\relax
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+% \ProcessOptionsX\relax
+\ProcessOptions\relax
 \LoadClass[a4paper, 12pt]{article}
 \newcommand{\team}{Team \#\ \MCM@opt@tcn}
 \RequirePackage{fancyhdr, fancybox}
@@ -127,7 +129,10 @@
       bottom=3mm
     ]{geometry}
 \else
-  \RequirePackage[left=1in,right=0.75in,top=1in,bottom=1in]{geometry}
+  \RequirePackage[left=1in,
+    right=0.75in,
+    top=1in,
+    bottom=1in]{geometry}
 \fi
 
 \pagestyle{fancy}
