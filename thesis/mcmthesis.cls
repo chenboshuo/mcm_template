@@ -91,6 +91,11 @@
 \RequirePackage{cleveref}  % 智能自动化交叉引用
 \RequirePackage{tikz} % 绘图包
 \RequirePackage{mathtools} % dcase case*命令
+\RequirePackage{ifdraft} % ifdraft command
+\RequirePackage{paracol} % paracol command
+\ifdraft{
+  \RequirePackage{ctex} % paracol command
+}
 
 % todo标签
 \RequirePackage[obeyDraft]{todonotes}
@@ -137,7 +142,11 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\small\sffamily \team}
+\ifdraft{
+  \lhead{Draft version}
+}{
+  \lhead{\small\sffamily \team}
+}
 \rhead{\small\sffamily Page \thepage\ }
 \setlength\parskip{.5\baselineskip}
 \renewcommand\tableofcontents{%
@@ -389,7 +398,19 @@
 \DeclareMathSymbol{\leftarrow}{\mathrel}{symbols}{"20}
 \let\gets=\leftarrow
 
-
+\newcommand{\zhEn}[2]{%
+  \ifdraft{%
+    \ifx\hfuzz#2\hfuzz%
+      \todo[color=yellow!30]{Translate:#1}%
+    \else%
+      \begin{paracol}{2}%
+        #2%
+      \switchcolumn%
+        #1%
+      \end{paracol}%
+    \fi%
+  }{#2}
+}
 
 
 \endinput
