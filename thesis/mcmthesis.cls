@@ -26,6 +26,7 @@
 %%
 %% The Current Maintainer of this work is Liam Huang.
 %%
+\PassOptionsToPackage{final}{graphicx}
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{mcmthesis}
   [2019/11/07 v6.3 The Thesis Template Designed For MCM/ICM]
@@ -83,7 +84,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[scaled]{berasans}
 \PassOptionsToPackage{hyphens}{url}
-\RequirePackage{hyperref}
+\RequirePackage[final]{hyperref}
 \RequirePackage{ifpdf, ifxetex}
 \RequirePackage{palatino}
 \RequirePackage{siunitx} % 物理单位
