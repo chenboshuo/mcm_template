@@ -46,6 +46,6 @@ add_extra release.tex
 build release
 rm release.tex
 
-Write-Host "Build sucessfully,press enter to exit. 构建成功，按下回车键退出" -ForegroundColor Green
+Write-Host "Build sucessfully,press enter to exit." -ForegroundColor Green
 
 Read-Host
