@@ -413,6 +413,39 @@
 }
 
 
+\RequirePackage{listings} % lstinline
+\RequirePackage{fontspec}
+\RequirePackage{ifplatform}
+\ifwindows
+\else
+  \setmonofont{DejaVu Sans Mono}
+\fi
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  framerule=1pt,
+  rulecolor=\color{gray!35},
+  backgroundcolor=\color{gray!5},
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  print
+}
+
 \endinput
 %%
 %% This work consists of these files mcmthesis.dtx,
