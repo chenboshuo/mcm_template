@@ -447,6 +447,10 @@
   print
 }
 
+% 绘图包
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
 \endinput
 %%
 %% This work consists of these files mcmthesis.dtx,
