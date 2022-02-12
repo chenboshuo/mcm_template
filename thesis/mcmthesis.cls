@@ -101,6 +101,15 @@
 % todo标签
 \RequirePackage[obeyDraft]{todonotes}
 \setuptodonotes{inline, color=blue!30}
+% todo notes
+\global\let\todoRawVersion=\todo
+\def\todo[#1]#2{
+  \ifdraft{
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{[TODO] \thinspace #2}
+  }{}
+  \todoRawVersion[#1]{#2}
+}
 
 \ifMCM@opt@CTeX
 \else
@@ -450,6 +459,15 @@
 % 绘图包
 \RequirePackage{tikz}
 \usetikzlibrary{calc}
+
+
+% \renewcommand{\todo}[2][]{
+%   \ifdraft{
+%     \phantomsection
+%     \addcontentsline{toc}{subsubsection}{TODO:#2}
+%   }
+%   \todoBackup[#1]{#2}
+% }
 
 \endinput
 %%
