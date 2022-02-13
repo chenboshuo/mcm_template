@@ -102,8 +102,8 @@
 \RequirePackage[obeyDraft]{todonotes}
 \setuptodonotes{inline, color=blue!30}
 % todo notes
-\global\let\todoRawVersion=\todo
-\def\todo[#1]#2{
+\let\todoRawVersion=\todo
+\newcommand\TODO[2][]{
   \ifdraft{
     \phantomsection
     \addcontentsline{toc}{subsubsection}{[TODO] \thinspace #2}
@@ -411,7 +411,7 @@
 \newcommand{\zhEn}[2]{%
   \ifdraft{%
     \ifx\hfuzz#2\hfuzz%
-      \todo[color=yellow!30]{Translate:#1}%
+      \TODO[color=yellow!30]{Translate:#1}%
     \else%
       \begin{paracol}{2}%
         #2%
@@ -459,15 +459,6 @@
 % 绘图包
 \RequirePackage{tikz}
 \usetikzlibrary{calc}
-
-
-% \renewcommand{\todo}[2][]{
-%   \ifdraft{
-%     \phantomsection
-%     \addcontentsline{toc}{subsubsection}{TODO:#2}
-%   }
-%   \todoBackup[#1]{#2}
-% }
 
 \endinput
 %%
