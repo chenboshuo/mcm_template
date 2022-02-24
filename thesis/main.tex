@@ -1,5 +1,6 @@
-\documentclass{mcmthesis}
+% \documentclass{mcmthesis}
 % \documentclass[draft,ebook]{mcmthesis}
+\documentclass[draft]{mcmthesis}
 %%%%%% the above content changing maybe also need make command
 \mcmsetup{
   tcn = 00000000, problem = D,
@@ -14,45 +15,37 @@
 
 \subfile{sections/abstract}
 
-% Generate the Table of Contents if it's needed.
-\listoftodos
-\tableofcontents
-\newpage
-
-
-% Generate the Memorandum, if it's needed.
-% \memoto{\LaTeX{}studio}
-% \memofrom{Liam Huang}
-% \memosubject{Happy \TeX{}ing!}
-% \memodate{\today}
-% \logo{\LARGE I'm pretending to be a LOGO!}
-% \begin{memo}[Memorandum]
-%   ;
-% \end{memo}
-
-
 \section{Introduction}
-  \TODO[caption={TODO command}]{\lstinline{\\TODO} is 
+  \TODO[caption={TODO command}]{\lstinline{\\TODO} is
     a better version of \lstinline{\\todo}
     because it add todo items in toc(only draft version)
   }
   \subfile{sections/introduction}
 \section{Basic Analysis of the problem}
   \subfile{sections/basic_analysis}
-\section{List Of Symbols}
+\section{List of Symbols}
   \subfile{sections/symbols}
 \section{General Assumptions}
   \subfile{sections/assumptions}
-\section{The Models}
+\section{Models}
   \subfile{sections/models}
 \section{Conclusions}
   \subfile{sections/conclusions}
-\section{Model Evaluation And Improvement}
+\section{Model Evaluation and Improvement}
   \subfile{sections/evaluation}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Memorandum}
+\subfile{sections/memorandum}
+
+\listoftodos
 
 \newpage
 \nocite{*}
 \bibliographystyle{plain}
+\phantomsection
+\addcontentsline{toc}{section}{Reference}
 \bibliography{../reference/reference}
 
 % \newpage
